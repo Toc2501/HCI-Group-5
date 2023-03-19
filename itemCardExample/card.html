@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="card.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="cardContainer">
+    <div class="card">
+        <div title='click me!' class="cardFront">
+            <img src="apple.png"/>
+            <h3>Apple</h3>
+            <p class="itemPrice">$.99</p>
+        </div>
+
+        <div class="cardBack">
+            <p class="returnToFront">&lsaquo;</p>
+            <h3>Apple</h3>
+            <div class="qtyControl">
+                <section class="dec fkBtn">&minus;</section>
+                <input class="inputQty" type="number" value=0 min="0" max="99">
+                <section class="inc fkBtn">&plus;</section>
+            </div>
+            <div class="cardInfo">
+                <p>Aisle No: <span class="AisleNo">3</span></p>
+                <p>In Stock: <span class="numAvailable">5</span></p>
+                <p title='under construction' class="cardMoreInfo">more info</p>
+            </div>
+            <button class="addToCart"><img src="./addToCart.svg" alt="addToCart image"></button>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="card.js"></script>
+
+</body>
+
+</html>
