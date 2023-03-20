@@ -1,5 +1,20 @@
-h1 {
-    text-align: center;
-    color: blue;
+.top-bar {
     background-color: red;
+    float: top;
+    height: 80px;
+}
+
+.container {
+    display: flex;
+}
+
+.fixed {
+    background-color: blue;
+    width: 10%;
+    height: 840px;
+}
+
+.flex-item {
+    background-color: green;
+    flex-grow: 1;
 }
