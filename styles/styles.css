@@ -1,5 +1,5 @@
 .top-bar {
-    background-color: red;
+    display: flex;
     float: top;
     height: 80px;
 }
@@ -9,12 +9,35 @@
 }
 
 .fixed {
-    background-color: blue;
     width: 10%;
     height: 840px;
 }
 
 .flex-item {
-    background-color: green;
     flex-grow: 1;
+}
+
+.side-menu-item {
+    height: 168px;
+}
+
+.logo {
+    width: 80px;
+}
+
+.search-bar {
+    height: 40px;
+    flex-grow: 1;
+}
+
+.search-button {
+    width: 40px;
+    height: 40px;
+}
+
+.cart-button {
+    position: fixed;
+    bottom: 0;
+    width: 10%;
+    right: 0;
 }
