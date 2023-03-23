@@ -4,6 +4,7 @@
     padding: .2rem .5rem  0rem.5rem;
     margin: 5px;
     font-family: sans-serif;
+    margin-left: 150px; /* TODO */
 }
 
 
@@ -66,8 +67,9 @@
 }
 
 .cardFront img{
-    width: 6rem;
+    width: 50%;
     margin-bottom: 0;
+    aspect-ratio: 1
 }
 
 .cardFront h3{
