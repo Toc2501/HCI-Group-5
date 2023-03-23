@@ -39,7 +39,15 @@
     ],
 
     "recipies" :[
-
+             {
+            "id"    :  1,
+            "name"  :   "egg fry rice",
+            "Ingredients"   :   ["egg", "salt", "green onion", "rice"," soy sauce"],
+            "Price" :   [null,null,null,null],
+            "steps" :   "Bring water, soy sauce, and salt to a boil in a medium saucepan. Stir in rice and remove from heat. Cover and let stand for 5 minutes.
+\n Heat oil in a medium skillet or wok over medium heat. Sauté onions and green beans in hot oil for 2 to 3 minutes. Pour in beaten egg and fry for 2 minutes, scrambling egg while it cooks.\n
+Add cooked rice to egg mixture; mix well. Season with pepper.\n",
+        },
 
     ]
 
