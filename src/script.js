@@ -89,7 +89,7 @@ function backToProducts() {
 
 function aboutUs() {
     const main = document.createElement("div")
-    main.setAttribute("class", "main")
+    main.setAttribute("class", "about-us")
     main.setAttribute("id", "main")
     main.innerHTML = `
     <p>At HCI we aren't your average local grocery store. We want your shopping experinece to be simple, efficient and fun. We recognize that shopping for groceries is seen as a mundane, obligatory task that must be completed week after week. We are on a mission to change that.</p>
