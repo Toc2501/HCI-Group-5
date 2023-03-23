@@ -59,6 +59,12 @@ function updateProductList(text, items) {
 
     const currentDiv = document.getElementById("itemlist")
     currentDiv.replaceWith(newDiv)
+
+    items.forEach(item => {
+        if (item.name.toLowerCase().includes(text.toLowerCase())) {
+            addFunk(item.name, item.available)
+        }
+    })
 }
 
 window.addEventListener("load", init)

@@ -6,38 +6,65 @@ function createElem(typ = 'div', classes = []) {
 }
 
 
-function addFunk(card) {
-    qtyControl = card.querySelector('.qtyControl'); //gets quantity control section of the card
-    console.log(card);
+function addFunk(name, numAvailable) {
+//    qtyControl = card.querySelector('.qtyControl'); //gets quantity control section of the card
+//    console.log(card);
+//
+//    //get increment/ decrement buttons and add functionality to them
+//    fkButtons = qtyControl.querySelectorAll('.fkBtn')
+//    fkButtons[0].addEventListener('click', (e) => {
+//        input = qtyControl.querySelector('.inputQty');
+//        if (input.value > 0)
+//            input.value = input.value - 1;
+//    });
+//
+//    fkButtons[1].addEventListener('click', (e) => {
+//        input = qtyControl.querySelector('.inputQty');
+//        numAvailable = card.querySelector('.numAvailable')
+//        numA = parseInt(numAvailable.innerHTML)
+//        if (input.value < input.max & input.value < numA)
+//            input.value = parseInt(input.value) + 1;
+//    });
+//
+//
+//    //add flipping motion
+//    front = card.querySelector(".cardFront")
+//    goBack = card.querySelector('.returnToFront')
+//    list = [front, goBack]
+//    for (a of list)
+//        a.addEventListener("click", (e) => {
+//            card.classList.toggle('cardFlipped')
+//        });
+//
+//    //link stuff to the add to card button
+//    //***** TO DO**********/
 
-    //get increment/ decrement buttons and add functionality to them
-    fkButtons = qtyControl.querySelectorAll('.fkBtn')
-    fkButtons[0].addEventListener('click', (e) => {
-        input = qtyControl.querySelector('.inputQty');
-        if (input.value > 0)
-            input.value = input.value - 1;
-    });
+    const decButton = document.getElementById(name + "decrement")
+    const incButton = document.getElementById(name + "increment")
+    const inputField = document.getElementById(name + "input")
+    const front = document.getElementById(name + "front")
+    const back = document.getElementById(name + "returnToFront")
+    const card = document.getElementById(name + "card")
 
-    fkButtons[1].addEventListener('click', (e) => {
-        input = qtyControl.querySelector('.inputQty');
-        numAvailable = card.querySelector('.numAvailable')
-        numA = parseInt(numAvailable.innerHTML)
-        if (input.value < input.max & input.value < numA)
-            input.value = parseInt(input.value) + 1;
-    });
+    decButton.addEventListener('click', () => {
+        if (inputField.value > 0) {
+            inputField.value--
+        }
+    })
 
+    incButton.addEventListener('click', () => {
+        if (inputField.value < inputField.max && inputField.value < numAvailable) {
+            inputField.value++
+        }
+    })
 
-    //add flipping motion
-    front = card.querySelector(".cardFront")
-    goBack = card.querySelector('.returnToFront')
-    list = [front, goBack]
-    for (a of list)
-        a.addEventListener("click", (e) => {
-            card.classList.toggle('cardFlipped')
-        });
+    front.addEventListener('click', () => {
+        card.classList.toggle('cardFlipped')
+    })
 
-    //link stuff to the add to card button
-    //***** TO DO**********/
+    back.addEventListener('click', () => {
+        card.classList.toggle('cardFlipped')
+    })
 }
 
 /* FUNCTIONS BELOW NEEDS TO BE ADJUSTED TO
@@ -64,10 +91,12 @@ function createFront(imgsrc,name,price){
 
 
 //create qtyControl
-function createQtyControl(){
+function createQtyControl(name){
     container = createElem('div',['qtyControl'])
     dec = createElem('div',['dec','fkBtn']) //its fakeBtn not f*ckBtn
+    dec.setAttribute("id", name + "decrement")
     inc = createElem('div',['inc','fkBtn']) //its fakeBtn not f*ckBtn'
+    inc.setAttribute("id", name + "increment")
 
     dec.innerHTML = '&minus;'
     inc.innerHTML = '&plus;'
@@ -77,6 +106,7 @@ function createQtyControl(){
     inpField.min = 0
     inpField.max = 99
     inpField.value = 0
+    inpField.setAttribute("id", name + "input")
 
     container.append(dec,inpField,inc);
     return container
@@ -108,10 +138,11 @@ function createBack(name,aisle,amount){
     title = createElem('h3')
         title.innerText=name;
 
-    qtyCtrl = createQtyControl()
+    qtyCtrl = createQtyControl(name)
     backInfo = createBackCardInfo(aisle,amount)
 
     rToFront = createElem('p',['returnToFront'])
+    rToFront.setAttribute("id", name + "returnToFront")
     rToFront.innerHTML = '&lsaquo;'
 
     //add to cart button
@@ -128,19 +159,19 @@ function createBack(name,aisle,amount){
 function createCard(item) {
     let cont = createElem('div', ['cardContainer']) //card container
     let crd = createElem('div', ['card']) //card
+    crd.setAttribute("id", item.name + "card")
 
     const imgsrc = "assets/apple.png"
 
     front=createFront(imgsrc, item.name, item.price) // front of the card
+    front.setAttribute("id", item.name + "front")
     back=createBack(item.name,item.aisle,item.available)  //back of the card
+    back.setAttribute("id", item.name + "back")
 
     for ( itm of [front,back])
         crd.appendChild(itm)
 
-    addFunk(crd)
+//    addFunk(item.name, item.available)
     cont.appendChild(crd)
     return cont
 }
-
-//adding functionality to the card from the example
-addFunk(document.querySelector('.card'));
