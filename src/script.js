@@ -50,20 +50,27 @@ function init() {
     updateProductList("", items)
 }
 
+function test(item) {
+    console.log(item)
+}
+
 function updateProductList(text, items) {
     const newDiv = document.createElement("div")
     newDiv.setAttribute("id", "itemlist")
     items.forEach(item => {
         if (item.name.toLowerCase().includes(text.toLowerCase())) {
-            const newItem = document.createElement("div")
-            const newContent = document.createTextNode(item.name)
-            newItem.appendChild(newContent)
-            newDiv.appendChild(newItem)
+            newDiv.appendChild(createCard(item))
         }
     })
 
     const currentDiv = document.getElementById("itemlist")
     currentDiv.replaceWith(newDiv)
+
+    items.forEach(item => {
+        if (item.name.toLowerCase().includes(text.toLowerCase())) {
+            addFunk(item.name, item.available)
+        }
+    })
 }
 
 function backToProducts() {
@@ -82,7 +89,7 @@ function backToProducts() {
 
 function aboutUs() {
     const main = document.createElement("div")
-    main.setAttribute("class", "main")
+    main.setAttribute("class", "about-us")
     main.setAttribute("id", "main")
     main.innerHTML = `
     <p>At HCI we aren't your average local grocery store. We want your shopping experinece to be simple, efficient and fun. We recognize that shopping for groceries is seen as a mundane, obligatory task that must be completed week after week. We are on a mission to change that.</p>
