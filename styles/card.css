@@ -1,0 +1,168 @@
+.cardContainer{
+    position: relative;
+    width: 190px;
+    padding: .2rem .5rem  0rem.5rem;
+    margin: 5px;
+    font-family: sans-serif;
+}
+
+
+.returnToFront{
+    position: absolute;
+    left:0px;
+    top:0px;
+    padding: 0rem .5rem;
+    margin:0;
+    font-size: 2rem;
+    color: white;
+    text-shadow: rgba(0, 0, 0, 0.69) 0px 0px 5px;
+    cursor: pointer;
+    transition: 200ms linear;
+    font-weight: 1000;
+}
+
+.returnToFront:hover{
+    color: rgb(80, 80, 92);
+    text-shadow: rgb(0, 0, 0) 0px 6px 8px;
+}
+
+.cardContainer, .card{
+    display: flex;
+    aspect-ratio : 3/4;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    position: absolute;
+    width: 100%;
+    height: 100%;;
+    background-color: rgb(226, 232, 238);
+    border-radius: .7rem;
+    transition: 700ms ease transform ;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -webkit-perspective: 1000px;
+	        perspective: 1000px;
+    border: 2px solid rgb(222, 225, 231);
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px .5rem;
+}
+
+.cardFlipped{
+    transform: rotateY(180deg);
+}
+
+.cardFront{cursor: pointer;}
+.cardFront, .cardBack {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.cardFront img{
+    width: 6rem;
+    margin-bottom: 0;
+}
+
+.cardFront h3{
+    margin-top: 0;
+    font-size:x-large;
+}
+
+
+.cardBack{
+    justify-content: space-between;
+    overflow: hidden;
+    border-radius: .7rem;
+    transform: rotateY(180deg);
+}
+
+.addToCart{
+    display: block;
+    position: relative;
+    width: 150%;
+    background-color: green;
+    border: none;
+    transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.addToCart:hover{
+    background-color: rgb(58, 179, 33);
+    transform: scale(1.1);
+}
+
+.addToCart img{
+    max-width: 35px;
+    filter: invert(100%);
+}
+
+.fkBtn{
+    display: block;
+    background-color: black;
+    color: whitesmoke;
+    text-align: center;
+    width: 30%;
+    cursor: pointer;
+    transition: 50ms ease;
+}
+
+.dec
+    {background-color: brown;
+    border-radius: 1rem 0rem 0rem 1rem;}
+.inc
+    {background-color: green;
+    border-radius: 0rem 1rem 1rem 0rem;}
+
+.dec:hover{background-color: rgb(230, 95, 95);}
+.inc:hover{background-color: rgb(152, 196, 132);}
+
+
+.qtyControl{
+    display: flex;
+    font-size: large;
+    width: 90%;
+    font-weight: bolder;
+}
+
+.inputQty{
+    width: 50%;
+    text-align: center;
+    border: none;
+    font-size: large;
+}
+
+.inputQty::-webkit-outer-spin-button,
+.inputQty::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.cardInfo {
+    font-size: small;
+    width: 90%;
+}
+
+.cardInfo p { 
+    text-align: left;
+    margin-bottom: .5rem;
+}
+
+.cardInfo .cardMoreInfo{
+    text-align: center;
+    color:rgb(43, 69, 218);
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 700;
+}
+.cardMoreInfo:hover{
+    color: rgb(40, 135, 212);
+}
+
+

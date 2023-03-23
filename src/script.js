@@ -44,15 +44,16 @@ function init() {
     updateProductList("", items)
 }
 
+function test(item) {
+    console.log(item)
+}
+
 function updateProductList(text, items) {
     const newDiv = document.createElement("div")
     newDiv.setAttribute("id", "itemlist")
     items.forEach(item => {
         if (item.name.toLowerCase().includes(text.toLowerCase())) {
-            const newItem = document.createElement("div")
-            const newContent = document.createTextNode(item.name)
-            newItem.appendChild(newContent)
-            newDiv.appendChild(newItem)
+            newDiv.appendChild(createCard(item))
         }
     })
 
