@@ -1,10 +1,10 @@
 .cardContainer{
     position: relative;
-    width: 175px;
+    width: 150px;
+    max-height: 250px;
     padding: .2rem .5rem  0rem.5rem;
     margin: 1%;
     font-family: sans-serif;
-    margin-left: 150px; /* TODO */
 }
 
 
@@ -48,6 +48,8 @@
     box-shadow: rgba(0, 0, 0, 0.5) 0px 5px .5rem;
 }
 
+.card h3{ font-size: medium;}
+
 .cardFlipped{
     transform: rotateY(180deg);
 }
@@ -88,7 +90,7 @@
 .addToCart{
     display: flex;
     width: 110%;
-    max-height: 15%;
+    max-height: 13%;
     background-color: green;
     border: none;
     transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -140,7 +142,7 @@
     width: 50%;
     text-align: center;
     border: none;
-    font-size: large;
+    font-size: medium;
 }
 
 .inputQty::-webkit-outer-spin-button,
@@ -150,11 +152,11 @@
 }
 
 .cardInfo {
-    font-size: small;
     width: 90%;
 }
 
-.cardInfo p {
+.cardInfo p, .cardInfo p span {
+    font-size: x-small;
     text-align: left;
     margin-bottom: .5rem;
 }

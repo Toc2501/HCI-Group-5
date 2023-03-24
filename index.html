@@ -5,12 +5,14 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="./src/data.js"></script>
         <script src="src/script.js"></script>
         <script src="src/card.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="styles/styles.css">
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto:wght@100&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="styles/card.css">
+        <link rel="stylesheet" href="styles/flyerstyles.css">
     </head>
     <body>
 
@@ -36,12 +38,10 @@
                         <div class="name" data-text="Categories">CATEGORIES</div>
                     </a>
                 </li>
-                <li class="side-menu-item">
-                    <a href="deals.html">
+                <li class="side-menu-item" id="deals-menu-item">
                         <div class="icon"></div>
                             <i class="material-icons" style="font-size: 3em;">flatware</i>
                         <div class="name" data-text="Deals">DEALS</div>
-                    </a>
                 </li>
                 <li class="side-menu-item">
                     <a href="categories.html">
@@ -58,13 +58,12 @@
             </ul>
         </nav>
       
-        <div class="main" id="main">
-            <div id="itemlist"/>
+        <div class="itemlist" id="main">
         </div>
-    </div> <!-- end of main content body -->
+    </div> <!-- end of contentBody -->
 
         <div class="cart">
-            <div class="cart-button">CART</div>
+            <div class="cart-button">cart</div>
             <div class="cart-container"></div> <!-- place products added to cart here -->
             <div class="payment">Proceed to Payment</div> 
         </div>
