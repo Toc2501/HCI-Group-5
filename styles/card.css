@@ -1,8 +1,8 @@
 .cardContainer{
     position: relative;
-    width: 190px;
+    width: 175px;
     padding: .2rem .5rem  0rem.5rem;
-    margin: 5px;
+    margin: 1%;
     font-family: sans-serif;
     margin-left: 150px; /* TODO */
 }
@@ -86,13 +86,16 @@
 }
 
 .addToCart{
-    display: block;
-    position: relative;
-    width: 150%;
+    display: flex;
+    width: 110%;
+    max-height: 15%;
     background-color: green;
     border: none;
     transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .addToCart:hover{
@@ -101,7 +104,7 @@
 }
 
 .addToCart img{
-    max-width: 35px;
+    max-height: 100%;
     filter: invert(100%);
 }
 

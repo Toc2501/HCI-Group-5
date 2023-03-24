@@ -48,6 +48,8 @@ function init() {
         updateProductList(document.getElementById("searchbar").value, items)
     })
     updateProductList("", items)
+
+    cartSlide()
 }
 
 function test(item) {
@@ -101,5 +103,15 @@ function aboutUs() {
 
     document.getElementById("main").replaceWith(main)
 }
+
+
+function cartSlide(){
+    const cart = document.querySelector(".cart")
+    const bttn = document.querySelector(".cart-button")
+    bttn.addEventListener('click',()=>{
+        cart.classList.toggle("cartActive")
+    })
+}
+
 
 window.addEventListener("load", init)

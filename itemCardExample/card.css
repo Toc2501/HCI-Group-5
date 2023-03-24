@@ -1,6 +1,6 @@
 .cardContainer{
     position: relative;
-    width: 190px;
+    width: 150px;
     padding: .2rem .5rem  0rem.5rem;
     margin: 5px;
     font-family: sans-serif;
@@ -52,6 +52,7 @@
 }
 
 .cardFront{cursor: pointer;}
+
 .cardFront, .cardBack {
     display: flex;
     position: absolute;
@@ -66,7 +67,7 @@
 }
 
 .cardFront img{
-    width: 6rem;
+    width: 50%;
     margin-bottom: 0;
 }
 
@@ -86,7 +87,8 @@
 .addToCart{
     display: block;
     position: relative;
-    width: 150%;
+    width: 120%;
+    height: 20%;
     background-color: green;
     border: none;
     transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -99,7 +101,7 @@
 }
 
 .addToCart img{
-    max-width: 35px;
+    width: 15%;
     filter: invert(100%);
 }
 
@@ -126,7 +128,6 @@
 
 .qtyControl{
     display: flex;
-    font-size: large;
     width: 90%;
     font-weight: bolder;
 }
@@ -135,7 +136,7 @@
     width: 50%;
     text-align: center;
     border: none;
-    font-size: large;
+    font-size: small;
 }
 
 .inputQty::-webkit-outer-spin-button,
@@ -145,21 +146,23 @@
 }
 
 .cardInfo {
-    font-size: small;
     width: 90%;
 }
 
 .cardInfo p { 
     text-align: left;
-    margin-bottom: .5rem;
+    margin-bottom: 5%;;
+    font-size: x-small;
 }
 
-.cardInfo .cardMoreInfo{
+.cardInfo .cardMoreInfo {
     text-align: center;
     color:rgb(43, 69, 218);
     text-decoration: underline;
     cursor: pointer;
     font-weight: 700;
+    font-size: x-small;
+    margin:5%;
 }
 .cardMoreInfo:hover{
     color: rgb(40, 135, 212);
