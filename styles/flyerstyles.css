@@ -1,13 +1,6 @@
 .center img{
     flex: auto;
     min-width: 200px;
-    max-width: 40%;
+    max-width: 35%;
     aspect-ratio: 1;
-}
-
-
-.center{
-    max-width: 50%;
-    z-index: -1;
-    gap : 5%;
 }
