@@ -52,7 +52,7 @@ li {
  .contentBody{
     display: flex;
     width: 100vw;
-    height: 50vh;
+    height: 55vh;
     justify-content:flex-start;
     align-items: center;
     margin-top: 1%;

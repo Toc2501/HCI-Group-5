@@ -39,7 +39,7 @@
             "id"    : 5,
             "name"  : "Rice",
             "sold-in"   : "1kg bag",
-            "aisle" :   1,
+            "aisle" :   3,
             "category"  : "Pantry Food",
             "available" : 45,
             "price" : 5.25
@@ -48,7 +48,7 @@
             "id"    : 6,
             "name"  : "Spaghetti",
             "sold-in"   : "500g box",
-            "aisle" :   1,
+            "aisle" :   3,
             "category"  : "Pantry Food",
             "available" : 45,
             "price" : 1.20
