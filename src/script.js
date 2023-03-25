@@ -150,6 +150,10 @@ function updateCart() {
         const text = document.createTextNode(k + " x" + cart[k].num + " @" + cart[k].item.price + "/" + cart[k].item["sold-in"] + " = $" + price.toFixed(2))
         const p = document.createElement("p")
         p.appendChild(text)
+        p.addEventListener("click", () => {
+            delete cart[k]
+            updateCart()
+        })
         cartContainer.appendChild(p)
     })
 
