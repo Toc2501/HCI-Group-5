@@ -18,6 +18,7 @@ function init() {
 
 
     cartSlide()
+    updateSearchType()
 }
 
 function test(item) {
@@ -100,6 +101,17 @@ function cartSlide(){
     const bttn = document.querySelector(".cart-button")
     bttn.addEventListener('click',()=>{
         cart.classList.toggle("cartActive")
+    })
+}
+
+function updateSearchType(){
+    const selectB = document.getElementById("search-type")
+     searchBar = document.getElementById("searchbar")
+
+    selectB.addEventListener("change",()=>{
+        (selectB.value == 'all') && (searchBar.placeholder = "Search");
+        (selectB.value == 'product') && (searchBar.placeholder = "Search for products");
+        (selectB.value == 'category') && (searchBar.placeholder = "Search for category");
     })
 }
 

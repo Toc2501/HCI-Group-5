@@ -1,5 +1,5 @@
 :root{
-    --base-color :  rgb(226, 232, 238);
+    --base-color :  rgb(238, 240, 236);
 }
 
 
@@ -32,22 +32,46 @@ li {
     width: 100%;
     height: 80px;
     align-items: center;
-    border: 1px solid black;
     background-color: var(--base-color);
+    z-index: 1;
+    gap: 2%;
 }
  
-.logo img{
-    width: 15%;
-    min-width: 8rem; 
-    aspect-ratio: 1; 
- }
+.logo{max-width: 30%;}
 
-.search-bar {
-    width: 400px;
-    position: sticky;
-    font-size: large;
-    padding: .5rem .5rem;
+.logo img{
+    max-width: 200px;
+    width: 30%;
+    min-width: 150px;
 }
+
+
+.search-bar, #search-type{
+    outline: none;
+    border: none;
+}
+ .searchbar{
+    display: flex;
+    width: 75vw;
+    margin-right: 2%;
+    border-radius: 1rem;
+    border: black solid .1rem;
+ }
+.search-bar {
+    width: 45%;
+    min-width: 200px;
+    font-size: medium;
+    padding: .5rem .5rem;
+    flex: 2;
+    border-radius: 0 1rem 1rem 0;
+}
+
+#search-type{border-radius: 1rem 0 0 1rem;
+text-align: center;
+border-right: solid black .05rem;
+padding: .1rem;}
+
+
 
  .contentBody{
     display: flex;
@@ -99,6 +123,7 @@ li {
     overflow-y: auto;
     margin: 10%;
     gap: 2rem;
+    border-radius: 1rem;
 }
 
 
@@ -141,12 +166,13 @@ li {
     padding: .3rem 0;
     cursor: pointer;
     font-size: large;
-    transition: 300ms linear background-color;
+    transition: 300ms linear all;
 }
 
 
 .cart-button:hover, .payment:hover{
-    background-color: rgb(11, 83, 11);
+    background-color: rgb(18, 119, 18);
+    box-shadow: inset limegreen 0 0 20px;
 }
 
 .payment{
@@ -165,5 +191,19 @@ li {
 
 /******** cart stuff ends ********/
 
+
+/********scroll bar *******/
+::-webkit-scrollbar{width: 15px;}
+
+::-webkit-scrollbar-track{
+    border-radius: 0 1rem 1rem 0;
+    background-color: var(--base-color);
+}
+
+::-webkit-scrollbar-thumb{
+    border-radius: 1rem;
+    width: 25px;
+    box-shadow: inset rgba(37, 37, 37, 0.804) 0 0 5px;
+}
 
 

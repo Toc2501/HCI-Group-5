@@ -21,8 +21,13 @@
             <div class="logo" id="logo">
                     <img src = "./images/My project.png" alt="logo"/>
             </div>
-            <div class="search-bar">
-                <input type="text" class="search-bar" id="searchbar"></input>
+            <div class="searchbar">
+                <select name="search-type" id="search-type">
+                    <option value="all" selected> All </option>
+                    <option value="category"> By Category </option>
+                    <option value="product">By Product</option>
+                </select>
+                <input type="text" class="search-bar" id="searchbar" placeholder="Search"></input>
             </div>
         </div>
 
@@ -63,7 +68,7 @@
     </div> <!-- end of contentBody -->
 
         <div class="cart">
-            <div class="cart-button">cart</div>
+            <div class="cart-button">CART</div>
             <div class="cart-container"></div> <!-- place products added to cart here -->
             <div class="payment">Proceed to Payment</div> 
         </div>
