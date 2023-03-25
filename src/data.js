@@ -52,6 +52,15 @@
             "category"  : "Pantry Food",
             "available" : 45,
             "price" : 1.20
+        },
+        {
+            "id":5,
+            "name":"Bison",
+            "sold-in":"lb",
+            "aisle":7,
+            "category":"Meat",
+            "available":37,
+            "price":5
         }
     ]
 
