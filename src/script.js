@@ -37,9 +37,13 @@ function updateProductList(text, type, items) {
     newDiv.setAttribute("class", "itemlist")
     newDiv.setAttribute("id", "main")
     items.forEach(item => {
-        if ( (type=='all' && ( item.name.toLowerCase().includes(text.toLowerCase()) || item.category.toLowerCase().includes(text.toLowerCase()) ) ) ||
+        let matchCategory = false
+        item.category.forEach(category => {
+            matchCategory = matchCategory || category.toLowerCase().includes(text.toLowerCase())
+        })
+        if ( (type=='all' && (item.name.toLowerCase().includes(text.toLowerCase()) || matchCategory)) ||
             (type=='product' && item.name.toLowerCase().includes(text.toLowerCase()) ) ||
-             (type=='category' && item.category.toLowerCase().includes(text.toLowerCase())) ) {
+             (type=='category' && matchCategory) ) {
             newDiv.appendChild(createCard(item))
             count++
         }

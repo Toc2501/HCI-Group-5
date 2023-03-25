@@ -4,7 +4,7 @@
             "name"  :   "Apple",
             "aisle" :   2,
             "sold-in": "singles",
-            "category"  : "Fruits",
+            "category"  : ["Fruits"],
             "available" : 256,
             "price" : 0.79
         },
@@ -13,7 +13,7 @@
             "name"  :   "Carrot",
             "sold-in"   : "singles",
             "aisle" :   1,
-            "category"  : "Vegetables",
+            "category"  : ["Vegetables"],
             "available" : 105,
             "price" : 1.95
         },
@@ -22,7 +22,7 @@
             "name"  : "Broccoli",
             "sold-in"   : "1kg bag",
             "aisle" :   1,
-            "category"  : "Vegetables",
+            "category"  : ["Vegetables"],
             "available" : 105,
             "price" : 3.50
         },
@@ -31,7 +31,7 @@
             "name"  : "Cilantro",
             "sold-in"   : "bunches",
             "aisle" :   1,
-            "category"  : "Vegetable Herbs",
+            "category"  : ["Vegetables", "Herbs"],
             "available" : 45,
             "price" : 0.86
         },
@@ -40,7 +40,7 @@
             "name"  : "Rice",
             "sold-in"   : "1kg bag",
             "aisle" :   3,
-            "category"  : "Pantry Food Grain",
+            "category"  : ["Pantry", "Grain"],
             "available" : 45,
             "price" : 5.25
         },
@@ -49,7 +49,7 @@
             "name"  : "Spaghetti",
             "sold-in"   : "500g box",
             "aisle" :   3,
-            "category"  : "Pantry Food",
+            "category"  : ["Pantry", "Grain"],
             "available" : 45,
             "price" : 1.20
         },
@@ -58,7 +58,7 @@
             "name":"Bison",
             "sold-in":"lb",
             "aisle":7,
-            "category":"Meat",
+            "category":["Meat"],
             "available":37,
             "price":5
         }
