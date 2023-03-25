@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+  <head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles/checkout.css" />
+  </head>
+  <body>
+    <h1>Checkout</h1>
+    <form>
+      <div class="section">
+        <label>First Name <input id="first-name" type="text" required /></label>
+        <label>Last Name <input id="last-name" name="last-name" type="text" required /></label>
+        <label>Email <input id="email" name="email" type="email" required /></label>
+        <label>Address <input id="address" placeholder="Include apt, suite, or floor number here" type="text" required />
+        <input id="city" placeholder="City" type="text" required /></label>
+        <select id="province" >
+            <option value>Province</option>
+            <option value="AB">Alberta</option>
+            <option value="BC">British Columbia</option>
+            <option value="MB">Manitoba</option>
+            <option value="NB">New Brunswick</option>
+            <option value="NL">Newfoundland and Labrador</option>
+            <option value="NT">Northwest Territories</option>
+            <option value="NS">Nova Scotia</option>
+            <option value="NU">Nunavut</option>
+            <option value="ON">Ontario</option>
+            <option value="PE">Prince Edward Island</option>
+            <option value="QC">Quebec</option>
+            <option value="SK">Saskatchewan</option>
+            <option value="YT">Yukon Territory</option>
+          </select>
+      </div>
+      <div class="section">
+        <label>Credit card number <input id="credit card" type="text" required /></label>
+        <label>Expiry (MM / YY) <input id="expiry" type="text" required /></label>
+        <label>Security code <input id="security" type="text" required /></label>
+        <label>Name on card<input id="name-on-card" type="text" required /></label>
+        <div class="billing">
+          <div class="billing-address">Billing dddress</div>
+          <div>
+            <input class="checkbox" id="billing-address" type="checkbox" required/> 
+            <label class="checkbox" for="billing-address">Same as shipping</label>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="order-summary">
+           <div class="line-label">Subtotal</div>
+           <div class="line-label2">insert_subtotal</div>
+           </div>
+        <div class="order-summary">
+          <div class="taxlabel">Tax</div>
+          <div class="taxlabel2">insert_tax</div>
+          </div>
+        <div class="total">
+          <div class="total-label">Total</div>
+          <div class="total-label2">insert_total</div>
+          </div>
+  
+      </dive>
+      <input type="submit" value="Place Order" />
+    </form>
+  </body>
+</html>

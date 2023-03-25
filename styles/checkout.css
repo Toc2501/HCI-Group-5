@@ -1,0 +1,73 @@
+body {
+    font-family: Helvetica;
+    font-size: 16px;
+    font-weight: lighter; 
+  }
+  
+  h1 {
+    margin: 0px;
+    margin-top: 20px; 
+    text-align: center;
+  }
+  
+  form {
+    width: 60vw;
+    max-width: 500px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding-bottom: 2em;
+  }
+  
+  .section {
+    padding: 2rem 0;
+    border-bottom: 1px solid grey;
+    border-top: none; 
+    border-right: none; 
+    border-left:none; 
+  }
+  
+  .section:last-of-type {
+    border-bottom: none;
+  }
+  
+  label {
+    display: block;
+    margin: 0.5rem 0;
+  }
+  
+  input,
+  textarea,
+  select {
+    margin: 10px 0 0 0;
+    width: 100%;
+    min-height: 2em;
+  }
+  
+  .inline {
+    width: unset;
+    margin: 0 0.5em 0 0;
+    vertical-align: middle;
+  }
+  
+  input[type="submit"] {
+    display: block;
+    width: 60%;
+    margin: 1em auto;
+    height: 2em;
+    font-size: 16px;
+    border: none; 
+    background-color: rgb(238, 240, 236);
+  }
+  
+  .order-summary {
+    display: flex; 
+    justify-content: space-between;
+    padding: .75rem 0; 
+  }
+  
+  .total {
+    display: flex; 
+    justify-content: space-between;
+    font-weight: bold; 
+    padding: .75rem 0; 
+  }
