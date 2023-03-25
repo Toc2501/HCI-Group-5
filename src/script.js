@@ -29,7 +29,7 @@ function updateListViaSearch(bar,items){
     const text = bar.value
     const type = bar.searchBy
 
-    updateProductList(text,items, type)
+    updateProductList(text,type,items)
 }
 
 function updateProductList(text, type, items) {

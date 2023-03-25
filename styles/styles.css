@@ -114,15 +114,14 @@ padding: .1rem;}
 
 #main{
     display: flex;
-    max-width: 75vw;
+    max-width: 70vw;
     max-height: 100%;
     flex-flow: wrap;
     background-color: var(--base-color);
     padding: 1.5rem;
     overflow-y: auto;
-    overflow-wrap: normal;
     margin: 10%;
-    gap: 2rem;
+    gap: 1rem;
     border-radius: 1rem;
 }
 
