@@ -61,7 +61,43 @@ items = [
         "category":["Meat"],
         "available":37,
         "price":5
-    }
+    },
+    {
+        "id":8,
+        "name":"Egg",
+        "sold-in":"12 count",
+        "aisle":8,
+        "category":["Dairy and Eggs"],
+        "availabe":100,
+        "price":3.59,
+    },
+    {
+        "id":9,
+        "name":"Salt",
+        "sold-in":"1kg box",
+        "aisle":3,
+        "category":["Pantry"],
+        "available":10,
+        "price":1.27,
+    },
+    {
+        "id":10,
+        "name":"Green Onion",
+        "sold-in":"bunches",
+        "aisle":1,
+        "category":["Vegetables"],
+        "available":20,
+        "price":1.47,
+    },
+    {
+        "id":11,
+        "name":"Soy Sauce",
+        "sold-in":"500ml bottle",
+        "aisle":3,
+        "category":["Pantry"],
+        "available":45,
+        "price":3.47,
+    },
 ]
 
 recipies =[
@@ -80,7 +116,7 @@ recipies =[
 ]
 
 categories = [
-    "Meat","Pantry","Grain","Vegetables","Herbs","Fruits"
+    "Meat","Pantry","Grain","Vegetables","Herbs","Fruits","Dairy and Eggs"
 ]
 
 cart = {

@@ -141,7 +141,7 @@ function createCard(item) {
     let crd = createElem('div', ['card']) //card
     crd.setAttribute("id", item.name + "card")
 
-    const imgsrc = "assets/apple.png"
+    const imgsrc = `images/item/${item.name.toLowerCase()}.png`
 
     const front=createFront(imgsrc, item.name, item.price) // front of the card
     front.setAttribute("id", item.name + "front")

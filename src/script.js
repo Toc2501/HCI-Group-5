@@ -1,6 +1,7 @@
 function init() {
     cartSlide()
     updateSearchType()
+    cartBottomAdjust()
 
     document.getElementById("categories-menu-item").addEventListener("click", () => {
         resetSearch()
@@ -119,7 +120,7 @@ function showCategories() {
     categories.forEach(category => {
         const newDiv = document.createElement("div")
         const img = document.createElement("img")
-        img.setAttribute("src", "assets/apple.png")
+        img.setAttribute("src", `images/cat/${category.toLowerCase()}.png`)
         const categoryTitle = document.createElement("H3")
         const categoryTitleText = document.createTextNode(category)
         categoryTitle.appendChild(categoryTitleText)
