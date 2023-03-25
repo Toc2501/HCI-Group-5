@@ -2,13 +2,28 @@
 <html>
     <head>
         <title>Deals Of The Week!</title>
+        <script src="src/data.js"></script>
         <script src="src/script.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="styles/styles.css">
         <link rel="stylesheet" href="styles/flyerstyles.css">
+        <link rel="stylesheet" href="styles/styles.css">
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto:wght@100&display=swap" rel="stylesheet">
     </head>
     <body>
+
+        <!-- top bar containing logo and search -->
+        <div class="top-bar">
+            <div class="logo" id="logo">
+                    <img src = "./images/My project.png" alt="logo"/>
+            </div>
+            <div class="search-bar">
+                <input type="text" class="search-bar" id="searchbar"></input>
+            </div>
+        </div>
+
+        <!-- main content body: everything should fall under here except topBar and cart-->
+        <div class="contentBody" id="contentBody">
+
         <nav class="container">
             <ul class="fixed" id="sidebar">
                 <li class="side-menu-item">
@@ -18,12 +33,10 @@
                         <div class="name" data-text="Categories">CATEGORIES</div>
                     </a>
                 </li>
-                <li class="side-menu-item">
-                    <a href="deals.html">
+                <li class="side-menu-item" id="deals-menu-item">
                         <div class="icon"></div>
                             <i class="material-icons" style="font-size: 3em;">flatware</i>
                         <div class="name" data-text="Deals">DEALS</div>
-                    </a>
                 </li>
                 <li class="side-menu-item">
                     <a href="categories.html">
@@ -39,22 +52,25 @@
                 </li>
             </ul>
         </nav>
-        <div class="top-bar">
-            <div class="logo" id="logo">
-                    <img src = "./images/My project.png" alt="logo"/>
-            </div>
-            <div class="search-bar">
-                <input type="text" class="search-bar" id="searchbar"></input>
-            </div>
-        </div>
+      
         <div class="main" id="main">
+            <div id="itemlist"/>
         </div>
+
         <div class="center" id="center">
             <img src = "./flyerimages/Cilantro.png" alt="cilantro-deal"/>
             <img src = "./flyerimages/Carrots.png" alt="carrots-deal"/>
             <img src = "./flyerimages/Bison.png" alt="bison-deal"/>
             <img src = "./flyerimages/Apples.png" alt="apples-deal"/>
         </div>
-        <div class="cart-button">Cart</div>
+
+    </div> <!-- end of main content body -->
+
+        <div class="cart">
+            <div class="cart-button">CART</div>
+            <div class="cart-container"></div> <!-- place products added to cart here -->
+            <div class="payment">Proceed to Payment</div> 
+        </div>
+       
     </body>
 </html>

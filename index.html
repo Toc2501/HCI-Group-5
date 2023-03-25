@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="./src/data.js"></script>
         <script src="src/script.js"></script>
         <script src="src/card.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -14,6 +15,25 @@
         <link rel="stylesheet" href="styles/flyerstyles.css">
     </head>
     <body>
+
+        <!-- top bar containing logo and search -->
+        <div class="top-bar">
+            <div class="logo" id="logo">
+                    <img src = "./images/My project.png" alt="logo"/>
+            </div>
+            <div class="searchbar">
+                <select name="search-type" id="search-type">
+                    <option value="all" selected> All </option>
+                    <option value="category"> By Category </option>
+                    <option value="product">By Product</option>
+                </select>
+                <input type="text" class="search-bar" id="searchbar" placeholder="Search"></input>
+            </div>
+        </div>
+
+        <!-- main content body: everything should fall under here except topBar and cart-->
+        <div class="contentBody" id="contentBody">
+
         <nav class="container">
             <ul class="fixed" id="sidebar">
                 <li class="side-menu-item">
@@ -42,17 +62,15 @@
                 </li>
             </ul>
         </nav>
-        <div class="top-bar">
-            <div class="logo" id="logo">
-                    <img src = "./images/My project.png" alt="logo"/>
-            </div>
-            <div class="search-bar">
-                <input type="text" class="search-bar" id="searchbar"></input>
-            </div>
+      
+        <div class="itemlist" id="main">
         </div>
-        <div class="main" id="main">
-            <div id="itemlist"/>
+    </div> <!-- end of contentBody -->
+
+        <div class="cart">
+            <div class="cart-button">CART</div>
+            <div class="cart-container"></div> <!-- place products added to cart here -->
+            <div class="payment">Proceed to Payment</div> 
         </div>
-        <div class="cart-button">Cart</div>
     </body>
 </html>

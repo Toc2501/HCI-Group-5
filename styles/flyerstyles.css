@@ -1,24 +1,7 @@
-.center img[src="./flyerimages/Cilantro.png"]{
-    width: 30%;
-    min-width: 250px;
-}
-.center img[src="./flyerimages/Carrots.png"]{
-    width: 30%;
-    left:250px; 
-    min-width: 250px;
-}
-.center img[src="./flyerimages/Bison.png"]{
-    width: 40%;
-    top:250px; 
-    min-width: 250px;
-}
-.center img[src="./flyerimages/Apples.png"]{
-    width: 30%;
-    top:250px; 
-    min-width: 250px;
-}
-.center{
-    left: 135px; 
-    position: fixed; 
-    top: 82px; 
+.center img{
+    flex: auto;
+    min-width: 200px;
+    max-width: 30%;
+    margin: .1rem;
+    aspect-ratio: 1;
 }

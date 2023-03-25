@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 items = [
     {
         "id"    :  1,
@@ -50,29 +51,51 @@ function init() {
     document.getElementById("deals-menu-item").addEventListener("click", () => {
         deals()
     })
+=======
+function init() {
+    cartSlide()
+    updateSearchType()
+
+>>>>>>> Rouge-branch
     document.getElementById("about-menu-item").addEventListener("click", () => {
+        resetSearch()
         aboutUs()
     })
+
+    document.getElementById("deals-menu-item").addEventListener("click", () => {
+        resetSearch()
+        deals()
+    })
+
     document.getElementById("logo").addEventListener("click", () => {
+        resetSearch()
         backToProducts()
     })
     document.getElementById("searchbar").addEventListener("keyup", () => {
-        updateProductList(document.getElementById("searchbar").value, items)
+        updateProductList(document.getElementById("searchbar"), items)
     })
-    updateProductList("", items)
+
+    updateProductList(document.getElementById("searchbar"), items)
 }
 
-function test(item) {
-    console.log(item)
-}
+function updateProductList(bar, items) {
+    const text = bar.value
+    const type = bar.searchBy
 
-function updateProductList(text, items) {
     const newDiv = document.createElement("div")
+<<<<<<< HEAD
     let count = 0
     newDiv.setAttribute("id", "itemlist")
+=======
+    newDiv.setAttribute("class", "itemlist")
+    newDiv.setAttribute("id", "main")
+>>>>>>> Rouge-branch
     items.forEach(item => {
-        if (item.name.toLowerCase().includes(text.toLowerCase())) {
+        if ( (type=='all' && ( item.name.toLowerCase().includes(text.toLowerCase()) || item.category.toLowerCase().includes(text.toLowerCase()) ) ) ||
+            (type=='product' && item.name.toLowerCase().includes(text.toLowerCase()) ) ||
+             (type=='category' && item.category.toLowerCase().includes(text.toLowerCase())) ) {
             newDiv.appendChild(createCard(item))
+<<<<<<< HEAD
             count++
         }
     })
@@ -85,27 +108,22 @@ function updateProductList(text, items) {
     }
 
     const currentDiv = document.getElementById("itemlist")
-    currentDiv.replaceWith(newDiv)
-
-    items.forEach(item => {
-        if (item.name.toLowerCase().includes(text.toLowerCase())) {
-            addFunk(item.name, item.available)
-        }
+=======
+        } 
     })
+
+    const currentDiv = document.querySelector(".itemlist")
+>>>>>>> Rouge-branch
+    currentDiv.replaceWith(newDiv)
 }
 
 function backToProducts() {
     const main = document.createElement("div")
-    main.setAttribute("class", "main")
+    main.setAttribute("class", "itemlist")
     main.setAttribute("id", "main")
 
-    const itemList = document.createElement("div")
-    itemList.setAttribute("id", "itemlist")
-
-    main.appendChild(itemList)
-
     document.getElementById("main").replaceWith(main)
-    updateProductList(document.getElementById("searchbar").value, items)
+    updateProductList(document.getElementById("searchbar"), items)
 }
 
 function aboutUs() {
@@ -116,13 +134,14 @@ function aboutUs() {
     <p>At HCI we aren't your average local grocery store. We want your shopping experinece to be simple, efficient and fun. We recognize that shopping for groceries is seen as a mundane, obligatory task that must be completed week after week. We are on a mission to change that.</p>
             <p>We were founded by a group of students studying Computer Science at the University of Manitoba. We were chronically exhausted, overworked and overwhelmed. The last thing we needed was the added stressor of grocery shopping, planning, cooking and meal prepping. We wanted a streamlined experience. We wanted to spend less time planning and more time eating good food.</p>
             <p>This vision gave rise to HCI groceries.</p>
-            <p>We want you to have fun. We want you to have more time. We want you to be healthy and happy. If this in line with your goals, you have come to the right place.</p>
-            <p>What are you waiting for? Insert link to categories page here, can maybe add a link where the label is "want to have fun" and then they go to the wordle page bc honestly I think its a fun idea and I disagree with the marker- </p>
+            <p>We want you to have fun. We want you to have more time. We want you to be healthy and happy. If this in line with your goals, you have come to the righto categories page here, can maybe add a link where the label is "want to have place.</p>
+            <p>What are you waiting for? Insert link t fun" and then they go to the wordle page bc honestly I think its a fun idea and I disagree with the marker- </p>
     `
 
     document.getElementById("main").replaceWith(main)
 }
 
+<<<<<<< HEAD
 function showProduct(name) {
     backToProducts()
     updateProductList(name, items)
@@ -142,4 +161,52 @@ function deals() {
     document.getElementById("main").replaceWith(main)
 }
 
+=======
+function deals(){
+    const main = document.createElement("div")
+    main.setAttribute("class","center")
+    main.setAttribute("id","main")
+
+    main.innerHTML =`   <img src = "./flyerimages/Cilantro.png" alt="cilantro-deal"/>
+    <img src = "./flyerimages/Carrots.png" alt="carrots-deal"/>
+    <img src = "./flyerimages/Bison.png" alt="bison-deal"/>
+    <img src = "./flyerimages/Apples.png" alt="apples-deal"/>
+    `
+    document.getElementById("main").replaceWith(main)
+}
+
+
+function cartSlide(){
+    const cart = document.querySelector(".cart")
+    const bttn = document.querySelector(".cart-button")
+    bttn.addEventListener('click',()=>{
+        cart.classList.toggle("cartActive")
+    })
+}
+
+function updateSearchType(){
+    const selectB = document.getElementById("search-type")
+    const searchBar = document.getElementById("searchbar")
+
+    searchBar.searchBy = 'all' // set default
+    selectB.addEventListener("change",()=>{
+        (selectB.value == 'all') && (searchBar.placeholder = "Search");
+        (selectB.value == 'product') && (searchBar.placeholder = "Search for products");
+        (selectB.value == 'category') && (searchBar.placeholder = "Search for category");
+        searchBar.searchBy = selectB.value
+    })
+}
+
+function resetSearch(){
+    const selectB = document.getElementById("search-type")
+    const searchBar = document.getElementById("searchbar")
+
+    selectB.value = 'all';
+    searchBar.searchBy = selectB.value // set default
+    searchBar.placeholder = 'Search' // set default
+    
+}
+
+
+>>>>>>> Rouge-branch
 window.addEventListener("load", init)
