@@ -1,4 +1,3 @@
-
 function init() {
     cartSlide()
     updateSearchType()
@@ -133,8 +132,21 @@ function resetSearch(){
     selectB.value = 'all';
     searchBar.searchBy = selectB.value // set default
     searchBar.placeholder = 'Search' // set default
-    
 }
 
+function updateCart() {
+    const cartContainer = document.createElement("div")
+    cartContainer.setAttribute("class", "cart-container")
+    cartContainer.setAttribute("id", "cart-container")
+
+    Object.keys(cart).forEach((k) => {
+        const text = document.createTextNode(k + " x" + cart[k].num + " $" + cart[k].num * cart[k].item.price)
+        const p = document.createElement("p")
+        p.appendChild(text)
+        cartContainer.appendChild(p)
+    })
+
+    document.getElementById("cart-container").replaceWith(cartContainer)
+}
 
 window.addEventListener("load", init)
