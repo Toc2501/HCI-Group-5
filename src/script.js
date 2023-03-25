@@ -34,10 +34,22 @@ items = [
         "category"  : "Herbs",
         "available" : 45,
         "price" : 0.86
+    },
+    {
+        "id":5,
+        "name":"Bison",
+        "sold-in":"lb",
+        "aisle":7,
+        "category":"Meat",
+        "available":37,
+        "price":5
     }
 ]
 
 function init() {
+    document.getElementById("deals-menu-item").addEventListener("click", () => {
+        deals()
+    })
     document.getElementById("about-menu-item").addEventListener("click", () => {
         aboutUs()
     })
@@ -106,6 +118,25 @@ function aboutUs() {
             <p>This vision gave rise to HCI groceries.</p>
             <p>We want you to have fun. We want you to have more time. We want you to be healthy and happy. If this in line with your goals, you have come to the right place.</p>
             <p>What are you waiting for? Insert link to categories page here, can maybe add a link where the label is "want to have fun" and then they go to the wordle page bc honestly I think its a fun idea and I disagree with the marker- </p>
+    `
+
+    document.getElementById("main").replaceWith(main)
+}
+
+function showProduct(name) {
+    backToProducts()
+    updateProductList(name, items)
+}
+
+function deals() {
+    const main = document.createElement("div")
+    main.setAttribute("class", "center")
+    main.setAttribute("id", "main")
+    main.innerHTML = `
+<img src = "./flyerimages/Cilantro.png" alt="cilantro-deal" onclick="showProduct('cilantro')"/>
+<img src = "./flyerimages/Carrots.png" alt="carrots-deal" onclick="showProduct('carrot')"/>
+<img src = "./flyerimages/Bison.png" alt="bison-deal" onclick="showProduct('bison')"/>
+<img src = "./flyerimages/Apples.png" alt="apples-deal" onclick="showProduct('apple')"/>
     `
 
     document.getElementById("main").replaceWith(main)
