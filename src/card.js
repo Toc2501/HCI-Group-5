@@ -45,10 +45,10 @@ TO THE FUCTION*/
 
 //front of the card
 function createFront(imgsrc,name,price){
-    front = createElem('div',['cardFront'])
-    img = createElem('img')
-    title = createElem('h3')
-    priceTag = createElem('p',['itemPrice'])
+    const front = createElem('div',['cardFront'])
+    const img = createElem('img')
+    const title = createElem('h3')
+    const priceTag = createElem('p',['itemPrice'])
 
     img.src = imgsrc
     title.innerHTML = name
@@ -63,16 +63,16 @@ function createFront(imgsrc,name,price){
 
 //create qtyControl
 function createQtyControl(name){
-    container = createElem('div',['qtyControl'])
-    dec = createElem('div',['dec','fkBtn']) //its fakeBtn not f*ckBtn
+    let container = createElem('div',['qtyControl'])
+    let dec = createElem('div',['dec','fkBtn']) //its fakeBtn not f*ckBtn
     dec.setAttribute("id", name + "decrement")
-    inc = createElem('div',['inc','fkBtn']) //its fakeBtn not f*ckBtn'
+    let inc = createElem('div',['inc','fkBtn']) //its fakeBtn not f*ckBtn'
     inc.setAttribute("id", name + "increment")
 
     dec.innerHTML = '&minus;'
     inc.innerHTML = '&plus;'
 
-    inpField= createElem('input',['inputQty'])
+    let inpField= createElem('input',['inputQty'])
     inpField.type = 'number'
     inpField.min = 0
     inpField.max = 99
@@ -85,12 +85,12 @@ function createQtyControl(name){
 
 //item info such as aisleNo and stock availability
 function createBackCardInfo(aisleNo,stockAmount){
-    cardInfo = createElem('div',['cardInfo'])
-    p1 = createElem('p')
-    sec1 = createElem('span',['AisleNo'])
-    p2 = createElem('p')
-    sec2 = createElem('span',['numAvailable'])
-    p3 = createElem('p',['cardMoreInfo'])
+    let cardInfo = createElem('div',['cardInfo'])
+    let p1 = createElem('p')
+    let sec1 = createElem('span',['AisleNo'])
+    let p2 = createElem('p')
+    let sec2 = createElem('span',['numAvailable'])
+    let p3 = createElem('p',['cardMoreInfo'])
 
     p1.innerText = 'Aisle No:', p2.innerText = 'In Stock:';
     sec1.innerText = aisleNo, sec2.innerText=stockAmount;
@@ -105,21 +105,21 @@ function createBackCardInfo(aisleNo,stockAmount){
 
 //back of the card
 function createBack(item){
-    back = createElem('div',['cardBack'])
-    title = createElem('h3')
+    const back = createElem('div',['cardBack'])
+    const title = createElem('h3')
         title.innerText=item.name;
 
-    qtyCtrl = createQtyControl(item.name)
-    backInfo = createBackCardInfo(item.aisle,item.available)
+    const qtyCtrl = createQtyControl(item.name)
+    const backInfo = createBackCardInfo(item.aisle,item.available)
 
     rToFront = createElem('p',['returnToFront'])
     rToFront.setAttribute("id", item.name + "returnToFront")
     rToFront.innerHTML = '&lsaquo;'
 
     //add to cart button
-    img = createElem('img')
+    const img = createElem('img')
     img.src = 'assets/addToCart.svg'
-    addToCart = createElem('button',['addToCart'])
+    const addToCart = createElem('button',['addToCart'])
     addToCart.addEventListener("click", () => {
         const num = document.getElementById(item.name + "input")?.value
         if (num == 0) {

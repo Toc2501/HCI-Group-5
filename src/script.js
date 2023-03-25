@@ -56,8 +56,8 @@ function updateProductList(text, type, items) {
 
     if (count === 0) {
         const header = document.createElement("H2")
-        const text = document.createTextNode("No Results")
-        header.appendChild(text)
+        const msg = document.createTextNode(`'${text}' Not Found`)
+        header.appendChild(msg)
         newDiv.appendChild(header)
     }
 
@@ -144,6 +144,7 @@ function cartSlide(){
     const bttn = document.querySelector(".cart-button")
     bttn.addEventListener('click',()=>{
         cart.classList.toggle("cartActive")
+        cartBottomAdjust()
     })
 }
 
@@ -209,6 +210,21 @@ function updateCart() {
 
     document.getElementById("cart-container").replaceWith(cartContainer)
     document.getElementById("totals").replaceWith(totals)
+
+    //adjust bottom
+    cartBottomAdjust()
+}
+
+function cartBottomAdjust(){
+    const cart = document.querySelector(".cart");
+    const adjustment = document.querySelector(".cart-container").scrollHeight + 
+    document.querySelector(".payment").scrollHeight + 
+    document.querySelector("#totals").scrollHeight;
+
+    if( !cart.classList.contains('cartActive'))
+        cart.style.bottom = `${(adjustment *-1)-10}px`
+    else
+        cart.style.bottom = 0
 }
 
 window.addEventListener("load", init)

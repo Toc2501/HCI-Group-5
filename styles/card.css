@@ -15,7 +15,8 @@
 
 .cardContainer{
     position: relative;
-    width: 150px;
+    max-width: 175px;
+    min-width: 155px;
     max-height: 250px;
     padding: .2rem .5rem  0rem.5rem;
     font-family: sans-serif;

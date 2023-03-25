@@ -55,8 +55,16 @@ li {
     width: 75vw;
     margin-right: 2%;
     border-radius: 1rem;
-    border: black solid .1rem;
+    border: rgb(175, 175, 175) solid .12rem;
+
  }
+
+ .searchbar:focus-within{
+    border-color: rgb(137, 188, 255,.6) ;
+    box-shadow: rgb(137, 188, 255) 0 0 .5rem;
+ }
+
+
 .search-bar {
     width: 45%;
     min-width: 200px;
@@ -67,9 +75,10 @@ li {
 }
 
 #search-type{border-radius: 1rem 0 0 1rem;
-text-align: center;
-border-right: solid black .05rem;
-padding: .1rem;}
+text-align: right;
+border-right: solid rgba(61, 61, 61, 0.342) .05rem;
+padding-left: .5rem;
+}
 
 
 
@@ -120,7 +129,7 @@ padding: .1rem;}
     background-color: var(--base-color);
     padding: 1.5rem;
     overflow-y: auto;
-    margin: 10%;
+    margin: 5%;
     gap: 1rem;
     border-radius: 1rem;
 }
@@ -134,20 +143,21 @@ padding: .1rem;}
     justify-content: center;
 
     margin-right: 1rem;
-    bottom: -85%;
+    bottom: -18%;
     right: 0;
     width: 30%;
     max-width: 300px;
     min-width: 250px;
+    max-height: 70vh;
     transition: 400ms ease;
     border-radius: .5rem .5rem 0rem 0rem;
     background-color: var(--base-color);
     overflow: hidden;
+    
 }
 
 
 .cartActive{
-    bottom:0;
     box-shadow: rgba(0, 0, 0, 0.2) -5px -10px 5px;
 }
 
@@ -160,6 +170,7 @@ padding: .1rem;}
     cursor: pointer;
     font-size: large;
     transition: 300ms linear all;
+    height: 20%;
 }
 
 
@@ -179,7 +190,9 @@ padding: .1rem;}
 
 
 .cart-container{
-    height: 68vh;
+    max-height: 500px;
+    min-height: 350px;
+    overflow-y: scroll;
 }
 
 /******** cart stuff ends ********/
