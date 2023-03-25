@@ -2,6 +2,11 @@ function init() {
     cartSlide()
     updateSearchType()
 
+    document.getElementById("categories-menu-item").addEventListener("click", () => {
+        resetSearch()
+        showCategories()
+    })
+
     document.getElementById("about-menu-item").addEventListener("click", () => {
         resetSearch()
         aboutUs()
@@ -37,9 +42,13 @@ function updateProductList(text, type, items) {
     newDiv.setAttribute("class", "itemlist")
     newDiv.setAttribute("id", "main")
     items.forEach(item => {
-        if ( (type=='all' && ( item.name.toLowerCase().includes(text.toLowerCase()) || item.category.toLowerCase().includes(text.toLowerCase()) ) ) ||
+        let matchCategory = false
+        item.category.forEach(category => {
+            matchCategory = matchCategory || category.toLowerCase().includes(text.toLowerCase())
+        })
+        if ( (type=='all' && (item.name.toLowerCase().includes(text.toLowerCase()) || matchCategory)) ||
             (type=='product' && item.name.toLowerCase().includes(text.toLowerCase()) ) ||
-             (type=='category' && item.category.toLowerCase().includes(text.toLowerCase())) ) {
+             (type=='category' && matchCategory) ) {
             newDiv.appendChild(createCard(item))
             count++
         }
@@ -98,6 +107,32 @@ function deals() {
 <img src = "./flyerimages/Bison.png" alt="bison-deal" onclick="showProduct('bison')"/>
 <img src = "./flyerimages/Apples.png" alt="apples-deal" onclick="showProduct('apple')"/>
     `
+
+    document.getElementById("main").replaceWith(main)
+}
+
+function showCategories() {
+    const main = document.createElement("div")
+    main.setAttribute("class", "center")
+    main.setAttribute("id", "main")
+
+    categories.forEach(category => {
+        const newDiv = document.createElement("div")
+        const img = document.createElement("img")
+        img.setAttribute("src", "assets/apple.png")
+        const categoryTitle = document.createElement("H3")
+        const categoryTitleText = document.createTextNode(category)
+        categoryTitle.appendChild(categoryTitleText)
+        newDiv.appendChild(img)
+        newDiv.appendChild(categoryTitle)
+
+        newDiv.addEventListener("click", () => {
+            backToProducts()
+            updateProductList(category, "category", items)
+        })
+
+        main.appendChild(newDiv)
+    })
 
     document.getElementById("main").replaceWith(main)
 }
