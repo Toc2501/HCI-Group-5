@@ -139,14 +139,37 @@ function updateCart() {
     cartContainer.setAttribute("class", "cart-container")
     cartContainer.setAttribute("id", "cart-container")
 
+    const totals = document.createElement("div")
+    totals.setAttribute("id", "totals")
+
+    let subtotal = 0
+
     Object.keys(cart).forEach((k) => {
-        const text = document.createTextNode(k + " x" + cart[k].num + " $" + cart[k].num * cart[k].item.price)
+        const price = cart[k].num * cart[k].item.price
+        subtotal += price
+        const text = document.createTextNode(k + " x" + cart[k].num + " @" + cart[k].item.price + "/" + cart[k].item["sold-in"] + " = $" + price.toFixed(2))
         const p = document.createElement("p")
         p.appendChild(text)
         cartContainer.appendChild(p)
     })
 
+    const subtotalNode = document.createElement("p")
+    const subtotalText = document.createTextNode("Subtotal: $" + subtotal)
+    subtotalNode.appendChild(subtotalText)
+    totals.appendChild(subtotalNode)
+
+    const taxNode = document.createElement("p")
+    const taxText = document.createTextNode("Tax: $" + (subtotal * 0.12).toFixed(2))
+    taxNode.appendChild(taxText)
+    totals.appendChild(taxNode)
+
+    const totalNode = document.createElement("p")
+    const totalText = document.createTextNode("Total: $" + (subtotal * 1.12).toFixed(2))
+    totalNode.appendChild(totalText)
+    totals.appendChild(totalNode)
+
     document.getElementById("cart-container").replaceWith(cartContainer)
+    document.getElementById("totals").replaceWith(totals)
 }
 
 window.addEventListener("load", init)
