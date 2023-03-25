@@ -56,12 +56,21 @@ function test(item) {
 
 function updateProductList(text, items) {
     const newDiv = document.createElement("div")
+    let count = 0
     newDiv.setAttribute("id", "itemlist")
     items.forEach(item => {
         if (item.name.toLowerCase().includes(text.toLowerCase())) {
             newDiv.appendChild(createCard(item))
+            count++
         }
     })
+
+    if (count === 0) {
+        const header = document.createElement("H2")
+        const text = document.createTextNode("No Results")
+        header.appendChild(text)
+        newDiv.appendChild(header)
+    }
 
     const currentDiv = document.getElementById("itemlist")
     currentDiv.replaceWith(newDiv)
