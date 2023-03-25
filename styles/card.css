@@ -18,12 +18,14 @@
     width: 150px;
     max-height: 250px;
     padding: .2rem .5rem  0rem.5rem;
-    margin: 1%;
     font-family: sans-serif;
     animation-name: cardIntro;
   animation-duration: 1s;
   animation-iteration-count: 2;
-  align-self: center;
+}
+
+.cardContainer:hover{
+    z-index: 1;
 }
 
 

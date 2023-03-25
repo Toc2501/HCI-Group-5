@@ -79,7 +79,7 @@ padding: .1rem;}
     height: 55vh;
     justify-content:flex-start;
     align-items: center;
-    margin-top: 1%;
+    margin-top: 3%;
  }
 
 
@@ -114,22 +114,17 @@ padding: .1rem;}
 
 #main{
     display: flex;
-    width: 75vw;
+    max-width: 75vw;
     max-height: 100%;
     flex-flow: wrap;
     background-color: var(--base-color);
-    padding: 1rem;
-    justify-content: center;
+    padding: 1.5rem;
     overflow-y: auto;
+    overflow-wrap: normal;
     margin: 10%;
     gap: 2rem;
     border-radius: 1rem;
 }
-
-
-
-
-
 
 
 /******** cart stuff begins ********/

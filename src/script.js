@@ -3,14 +3,17 @@ function init() {
     updateSearchType()
 
     document.getElementById("about-menu-item").addEventListener("click", () => {
+        resetSearch()
         aboutUs()
     })
 
     document.getElementById("deals-menu-item").addEventListener("click", () => {
+        resetSearch()
         deals()
     })
 
     document.getElementById("logo").addEventListener("click", () => {
+        resetSearch()
         backToProducts()
     })
     document.getElementById("searchbar").addEventListener("keyup", () => {
@@ -18,10 +21,6 @@ function init() {
     })
 
     updateProductList(document.getElementById("searchbar"), items)
-}
-
-function test(item) {
-    console.log(item)
 }
 
 function updateProductList(bar, items) {
@@ -41,29 +40,9 @@ function updateProductList(bar, items) {
 
     const currentDiv = document.querySelector(".itemlist")
     currentDiv.replaceWith(newDiv)
-
-    items.forEach(item => {
-        if ( (type=='all' && ( item.name.toLowerCase().includes(text.toLowerCase()) || item.category.toLowerCase().includes(text.toLowerCase()) ) ) ||
-        (type=='product' && item.name.toLowerCase().includes(text.toLowerCase()) ) ||
-         (type=='category' && item.category.toLowerCase().includes(text.toLowerCase()) ) ) {
-            addFunk(item.name, item.available)
-        }
-    })
 }
 
 function backToProducts() {
-
-    // const main = document.createElement("div")
-    // main.setAttribute("class", "main")
-    // main.setAttribute("id", "main")
-
-    // const itemList = document.createElement("div")
-    // itemList.setAttribute("id", "itemlist")
-
-    // main.appendChild(itemList)
-
-    // document.getElementById("main").replaceWith(main)
-
     const main = document.createElement("div")
     main.setAttribute("class", "itemlist")
     main.setAttribute("id", "main")
@@ -98,7 +77,6 @@ function deals(){
     <img src = "./flyerimages/Apples.png" alt="apples-deal"/>
     `
     document.getElementById("main").replaceWith(main)
-    console.log("clicked")
 }
 
 
@@ -121,6 +99,16 @@ function updateSearchType(){
         (selectB.value == 'category') && (searchBar.placeholder = "Search for category");
         searchBar.searchBy = selectB.value
     })
+}
+
+function resetSearch(){
+    const selectB = document.getElementById("search-type")
+    const searchBar = document.getElementById("searchbar")
+
+    selectB.value = 'all';
+    searchBar.searchBy = selectB.value // set default
+    searchBar.placeholder = 'Search' // set default
+    
 }
 
 

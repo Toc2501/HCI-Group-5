@@ -6,65 +6,37 @@ function createElem(typ = 'div', classes = []) {
 }
 
 
-function addFunk(name, numAvailable) {
-//    qtyControl = card.querySelector('.qtyControl'); //gets quantity control section of the card
-//    console.log(card);
-//
-//    //get increment/ decrement buttons and add functionality to them
-//    fkButtons = qtyControl.querySelectorAll('.fkBtn')
-//    fkButtons[0].addEventListener('click', (e) => {
-//        input = qtyControl.querySelector('.inputQty');
-//        if (input.value > 0)
-//            input.value = input.value - 1;
-//    });
-//
-//    fkButtons[1].addEventListener('click', (e) => {
-//        input = qtyControl.querySelector('.inputQty');
-//        numAvailable = card.querySelector('.numAvailable')
-//        numA = parseInt(numAvailable.innerHTML)
-//        if (input.value < input.max & input.value < numA)
-//            input.value = parseInt(input.value) + 1;
-//    });
-//
-//
-//    //add flipping motion
-//    front = card.querySelector(".cardFront")
-//    goBack = card.querySelector('.returnToFront')
-//    list = [front, goBack]
-//    for (a of list)
-//        a.addEventListener("click", (e) => {
-//            card.classList.toggle('cardFlipped')
-//        });
-//
-//    //link stuff to the add to card button
-//    //***** TO DO**********/
+function addFunk(card) {
+   const qtyControl = card.querySelector('.qtyControl'); //gets quantity control section of the card
 
-    const decButton = document.getElementById(name + "decrement")
-    const incButton = document.getElementById(name + "increment")
-    const inputField = document.getElementById(name + "input")
-    const front = document.getElementById(name + "front")
-    const back = document.getElementById(name + "returnToFront")
-    const card = document.getElementById(name + "card")
+   //get increment/ decrement buttons and add functionality to them
+   const fkButtons = qtyControl.querySelectorAll('.fkBtn')
+   fkButtons[0].addEventListener('click', (e) => {
+       let input = qtyControl.querySelector('.inputQty');
+       if (input.value > 0)
+           input.value = input.value - 1;
+   });
 
-    decButton.addEventListener('click', () => {
-        if (inputField.value > 0) {
-            inputField.value--
-        }
-    })
+   fkButtons[1].addEventListener('click', (e) => {
+       let input = qtyControl.querySelector('.inputQty');
+       const numAvailable = card.querySelector('.numAvailable')
+       const numA = parseInt(numAvailable.innerHTML)
+       if (input.value < input.max & input.value < numA)
+           input.value = parseInt(input.value) + 1;
+   });
 
-    incButton.addEventListener('click', () => {
-        if (inputField.value < inputField.max && inputField.value < numAvailable) {
-            inputField.value++
-        }
-    })
 
-    front.addEventListener('click', () => {
-        card.classList.toggle('cardFlipped')
-    })
+   //add flipping motion
+   const front = card.querySelector(".cardFront")
+   const goBack = card.querySelector('.returnToFront')
+   const list = [front, goBack]
+   for (a of list)
+       a.addEventListener("click", (e) => {
+           card.classList.toggle('cardFlipped')
+       });
 
-    back.addEventListener('click', () => {
-        card.classList.toggle('cardFlipped')
-    })
+   //link stuff to the add to card button
+   //***** TO DO**********/
 }
 
 /* FUNCTIONS BELOW NEEDS TO BE ADJUSTED TO
@@ -162,15 +134,14 @@ function createCard(item) {
 
     const imgsrc = "assets/apple.png"
 
-    front=createFront(imgsrc, item.name, item.price) // front of the card
+    const front=createFront(imgsrc, item.name, item.price) // front of the card
     front.setAttribute("id", item.name + "front")
-    back=createBack(item.name,item.aisle,item.available)  //back of the card
+    const back=createBack(item.name,item.aisle,item.available)  //back of the card
     back.setAttribute("id", item.name + "back")
 
-    for ( itm of [front,back])
-        crd.appendChild(itm)
+    crd.append(front,back)
 
-//    addFunk(item.name, item.available)
+    addFunk(crd)
     cont.appendChild(crd)
     return cont
 }
