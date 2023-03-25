@@ -158,7 +158,7 @@ function updateCart() {
     })
 
     const subtotalNode = document.createElement("p")
-    const subtotalText = document.createTextNode("Subtotal: $" + subtotal)
+    const subtotalText = document.createTextNode("Subtotal: $" + subtotal.toFixed(2))
     subtotalNode.appendChild(subtotalText)
     totals.appendChild(subtotalNode)
 
