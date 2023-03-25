@@ -1,7 +1,11 @@
-
 function init() {
     cartSlide()
     updateSearchType()
+
+    document.getElementById("categories-menu-item").addEventListener("click", () => {
+        resetSearch()
+        showCategories()
+    })
 
     document.getElementById("about-menu-item").addEventListener("click", () => {
         resetSearch()
@@ -29,7 +33,7 @@ function updateListViaSearch(bar,items){
     const text = bar.value
     const type = bar.searchBy
 
-    updateProductList(text,items, type)
+    updateProductList(text,type,items)
 }
 
 function updateProductList(text, type, items) {
@@ -38,9 +42,13 @@ function updateProductList(text, type, items) {
     newDiv.setAttribute("class", "itemlist")
     newDiv.setAttribute("id", "main")
     items.forEach(item => {
-        if ( (type=='all' && ( item.name.toLowerCase().includes(text.toLowerCase()) || item.category.toLowerCase().includes(text.toLowerCase()) ) ) ||
+        let matchCategory = false
+        item.category.forEach(category => {
+            matchCategory = matchCategory || category.toLowerCase().includes(text.toLowerCase())
+        })
+        if ( (type=='all' && (item.name.toLowerCase().includes(text.toLowerCase()) || matchCategory)) ||
             (type=='product' && item.name.toLowerCase().includes(text.toLowerCase()) ) ||
-             (type=='category' && item.category.toLowerCase().includes(text.toLowerCase())) ) {
+             (type=='category' && matchCategory) ) {
             newDiv.appendChild(createCard(item))
             count++
         }
@@ -103,6 +111,32 @@ function deals() {
     document.getElementById("main").replaceWith(main)
 }
 
+function showCategories() {
+    const main = document.createElement("div")
+    main.setAttribute("class", "center")
+    main.setAttribute("id", "main")
+
+    categories.forEach(category => {
+        const newDiv = document.createElement("div")
+        const img = document.createElement("img")
+        img.setAttribute("src", "assets/apple.png")
+        const categoryTitle = document.createElement("H3")
+        const categoryTitleText = document.createTextNode(category)
+        categoryTitle.appendChild(categoryTitleText)
+        newDiv.appendChild(img)
+        newDiv.appendChild(categoryTitle)
+
+        newDiv.addEventListener("click", () => {
+            backToProducts()
+            updateProductList(category, "category", items)
+        })
+
+        main.appendChild(newDiv)
+    })
+
+    document.getElementById("main").replaceWith(main)
+}
+
 
 
 function cartSlide(){
@@ -133,8 +167,48 @@ function resetSearch(){
     selectB.value = 'all';
     searchBar.searchBy = selectB.value // set default
     searchBar.placeholder = 'Search' // set default
-    
 }
 
+function updateCart() {
+    const cartContainer = document.createElement("div")
+    cartContainer.setAttribute("class", "cart-container")
+    cartContainer.setAttribute("id", "cart-container")
+
+    const totals = document.createElement("div")
+    totals.setAttribute("id", "totals")
+
+    let subtotal = 0
+
+    Object.keys(cart).forEach((k) => {
+        const price = cart[k].num * cart[k].item.price
+        subtotal += price
+        const text = document.createTextNode(k + " x" + cart[k].num + " @" + cart[k].item.price + "/" + cart[k].item["sold-in"] + " = $" + price.toFixed(2))
+        const p = document.createElement("p")
+        p.appendChild(text)
+        p.addEventListener("click", () => {
+            delete cart[k]
+            updateCart()
+        })
+        cartContainer.appendChild(p)
+    })
+
+    const subtotalNode = document.createElement("p")
+    const subtotalText = document.createTextNode("Subtotal: $" + subtotal.toFixed(2))
+    subtotalNode.appendChild(subtotalText)
+    totals.appendChild(subtotalNode)
+
+    const taxNode = document.createElement("p")
+    const taxText = document.createTextNode("Tax: $" + (subtotal * 0.12).toFixed(2))
+    taxNode.appendChild(taxText)
+    totals.appendChild(taxNode)
+
+    const totalNode = document.createElement("p")
+    const totalText = document.createTextNode("Total: $" + (subtotal * 1.12).toFixed(2))
+    totalNode.appendChild(totalText)
+    totals.appendChild(totalNode)
+
+    document.getElementById("cart-container").replaceWith(cartContainer)
+    document.getElementById("totals").replaceWith(totals)
+}
 
 window.addEventListener("load", init)

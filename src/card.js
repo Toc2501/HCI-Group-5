@@ -13,7 +13,7 @@ function addFunk(card) {
    const fkButtons = qtyControl.querySelectorAll('.fkBtn')
    fkButtons[0].addEventListener('click', (e) => {
        let input = qtyControl.querySelector('.inputQty');
-       if (input.value > 0)
+       if (input.value > input.min)
            input.value = input.value - 1;
    });
 
@@ -76,7 +76,7 @@ function createQtyControl(name){
     inpField.type = 'number'
     inpField.min = 0
     inpField.max = 99
-    inpField.value = 0
+    inpField.value = 1
     inpField.setAttribute("id", name + "input")
 
     container.append(dec,inpField,inc);
@@ -104,22 +104,31 @@ function createBackCardInfo(aisleNo,stockAmount){
 }
 
 //back of the card
-function createBack(name,aisle,amount){
+function createBack(item){
     back = createElem('div',['cardBack'])
     title = createElem('h3')
-        title.innerText=name;
+        title.innerText=item.name;
 
-    qtyCtrl = createQtyControl(name)
-    backInfo = createBackCardInfo(aisle,amount)
+    qtyCtrl = createQtyControl(item.name)
+    backInfo = createBackCardInfo(item.aisle,item.available)
 
     rToFront = createElem('p',['returnToFront'])
-    rToFront.setAttribute("id", name + "returnToFront")
+    rToFront.setAttribute("id", item.name + "returnToFront")
     rToFront.innerHTML = '&lsaquo;'
 
     //add to cart button
     img = createElem('img')
     img.src = 'assets/addToCart.svg'
     addToCart = createElem('button',['addToCart'])
+    addToCart.addEventListener("click", () => {
+        const num = document.getElementById(item.name + "input")?.value
+        if (num == 0) {
+            delete cart[item.name]
+        } else {
+            cart[item.name] = {item,num}
+        }
+        updateCart()
+    })
     addToCart.appendChild(img)
 
     back.append(rToFront,title,qtyCtrl,backInfo,addToCart)
@@ -136,7 +145,7 @@ function createCard(item) {
 
     const front=createFront(imgsrc, item.name, item.price) // front of the card
     front.setAttribute("id", item.name + "front")
-    const back=createBack(item.name,item.aisle,item.available)  //back of the card
+    const back=createBack(item)  //back of the card
     back.setAttribute("id", item.name + "back")
 
     crd.append(front,back)

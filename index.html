@@ -36,12 +36,10 @@
 
         <nav class="container">
             <ul class="fixed" id="sidebar">
-                <li class="side-menu-item">
-                    <a href="categories.html">
-                        <div class="icon"></div>
-                            <i class="material-icons" style="font-size: 3em;">flatware</i>
-                        <div class="name" data-text="Categories">CATEGORIES</div>
-                    </a>
+                <li class="side-menu-item" id="categories-menu-item">
+                    <div class="icon"></div>
+                        <i class="material-icons" style="font-size: 3em;">flatware</i>
+                    <div class="name" data-text="Categories">CATEGORIES</div>
                 </li>
                 <li class="side-menu-item" id="deals-menu-item">
                     <div class="icon"></div>
@@ -62,15 +60,19 @@
                 </li>
             </ul>
         </nav>
-      
         <div class="itemlist" id="main">
         </div>
     </div> <!-- end of contentBody -->
 
         <div class="cart">
             <div class="cart-button">CART</div>
-            <div class="cart-container"></div> <!-- place products added to cart here -->
-            <div class="payment">Proceed to Payment</div> 
+            <div class="cart-container" id="cart-container"></div> <!-- place products added to cart here -->
+            <div id="totals">
+                <p>Subtotal: $0</p>
+                <p>Tax $0</p>
+                <p>Total $0</p>
+            </div>
+            <div class="payment">Proceed to Payment</div>
         </div>
     </body>
 </html>
