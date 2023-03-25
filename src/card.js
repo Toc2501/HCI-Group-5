@@ -79,7 +79,6 @@ function createFront(imgsrc,name,price){
     priceTag = createElem('p',['itemPrice'])
 
     img.src = imgsrc
-    console.dir(img)
     title.innerHTML = name
     priceTag.innerHTML = '$'+price
 

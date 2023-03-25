@@ -31,7 +31,7 @@
             "name"  : "Cilantro",
             "sold-in"   : "bunches",
             "aisle" :   1,
-            "category"  : "Herbs",
+            "category"  : "Vegetable Herbs",
             "available" : 45,
             "price" : 0.86
         },
@@ -40,7 +40,7 @@
             "name"  : "Rice",
             "sold-in"   : "1kg bag",
             "aisle" :   3,
-            "category"  : "Pantry Food",
+            "category"  : "Pantry Food Grain",
             "available" : 45,
             "price" : 5.25
         },

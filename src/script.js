@@ -1,4 +1,7 @@
 function init() {
+    cartSlide()
+    updateSearchType()
+
     document.getElementById("about-menu-item").addEventListener("click", () => {
         aboutUs()
     })
@@ -11,35 +14,38 @@ function init() {
         backToProducts()
     })
     document.getElementById("searchbar").addEventListener("keyup", () => {
-        updateProductList(document.getElementById("searchbar").value, items)
+        updateProductList(document.getElementById("searchbar"), items)
     })
-    updateProductList("", items)
 
-
-
-    cartSlide()
-    updateSearchType()
+    updateProductList(document.getElementById("searchbar"), items)
 }
 
 function test(item) {
     console.log(item)
 }
 
-function updateProductList(text, items) {
+function updateProductList(bar, items) {
+    const text = bar.value
+    const type = bar.searchBy
+
     const newDiv = document.createElement("div")
     newDiv.setAttribute("class", "itemlist")
     newDiv.setAttribute("id", "main")
     items.forEach(item => {
-        if (item.name.toLowerCase().includes(text.toLowerCase())) {
+        if ( (type=='all' && ( item.name.toLowerCase().includes(text.toLowerCase()) || item.category.toLowerCase().includes(text.toLowerCase()) ) ) ||
+            (type=='product' && item.name.toLowerCase().includes(text.toLowerCase()) ) ||
+             (type=='category' && item.category.toLowerCase().includes(text.toLowerCase())) ) {
             newDiv.appendChild(createCard(item))
-        }
+        } 
     })
 
     const currentDiv = document.querySelector(".itemlist")
     currentDiv.replaceWith(newDiv)
 
     items.forEach(item => {
-        if (item.name.toLowerCase().includes(text.toLowerCase())) {
+        if ( (type=='all' && ( item.name.toLowerCase().includes(text.toLowerCase()) || item.category.toLowerCase().includes(text.toLowerCase()) ) ) ||
+        (type=='product' && item.name.toLowerCase().includes(text.toLowerCase()) ) ||
+         (type=='category' && item.category.toLowerCase().includes(text.toLowerCase()) ) ) {
             addFunk(item.name, item.available)
         }
     })
@@ -63,7 +69,7 @@ function backToProducts() {
     main.setAttribute("id", "main")
 
     document.getElementById("main").replaceWith(main)
-    updateProductList(document.getElementById("searchbar").value, items)
+    updateProductList(document.getElementById("searchbar"), items)
 }
 
 function aboutUs() {
@@ -106,12 +112,14 @@ function cartSlide(){
 
 function updateSearchType(){
     const selectB = document.getElementById("search-type")
-     searchBar = document.getElementById("searchbar")
+    const searchBar = document.getElementById("searchbar")
 
+    searchBar.searchBy = 'all' // set default
     selectB.addEventListener("change",()=>{
         (selectB.value == 'all') && (searchBar.placeholder = "Search");
         (selectB.value == 'product') && (searchBar.placeholder = "Search for products");
         (selectB.value == 'category') && (searchBar.placeholder = "Search for category");
+        searchBar.searchBy = selectB.value
     })
 }
 
