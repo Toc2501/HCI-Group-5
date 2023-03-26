@@ -111,6 +111,33 @@ recipies =[
         'Sauté onions and green beans in hot oil for 2 to 3 minutes.',
         'Pour in beaten egg and fry for 2 minutes, scrambling egg while it cooks.','Add cooked rice to egg mixture',
         'mix well. Season with pepper.']
+    },
+        {
+        "id"    :  2,
+        "name"  :   "Broccoli and Carrot Stir Fry",
+        "Ingredients"   :   ["Broccoli", "Carrot"],
+        'qty' :   [null,null],
+        "steps" :   ['Bring a large pot of lightly salted water to a boil, add broccoli and cook uncovered until bright green, about 2 minutes.', 
+        'Transfer broccoli to a bowl of ice water using a slotted spoon and immerse for several minutes to stop the cooking process, drain.',
+        'Bring water back to a boil in the same large pot; add sliced carrot and cook for 1 minute, drain.', 
+        'Mix water and cornstarch together in a bowl until smooth. Add chicken granules and salt and mix well.',
+        'Heat peanut oil in a wok or large skillet over high heat; saute broccoli and carrots for 2 minutes. ',
+        'Add cornstarch mixture; cook and stir until vegetables are coated evenly, 1 to 2 minutes.']
+    },
+        {
+        "id"    :  3,
+        "name"  :   "Tomato Egg Stir-Fry",
+        "Ingredients"   :   ["Tomato", "egg", "salt", "Green Onion"],
+        'qty' :   [null,null,null,null],
+        "steps" :   ['Start by cutting tomatoes into small wedges and finely chop the scallion.', 
+        'Crack 4 eggs into a bowl and season with ¼ teaspoon salt, beat eggs for a minute.',
+        'Preheat the wok over medium heat until it just starts to smoke. ', 
+        'Then add 2 tablespoons of oil and immediately add the eggs.',
+        'Scramble the eggs and remove from the wok immediately. Set aside. ',
+        'Add 1 more tablespoon oil to the wok, turn up the heat to high, and add the tomatoes and scallions.',
+        'Stir-fry for 1 minute, and then add 2 teaspoons sugar, ½ teaspoon salt, and ¼ cup water. Add the cooked eggs.',
+        'Mix everything together, cover the wok, and cook for 1-2 minutes, until the tomatoes are completely softened. ',
+        'Uncover, and continue to stir-fry over high heat until the sauce thickens to your liking.']
     }
 
 ]
