@@ -3,6 +3,11 @@ function init() {
     updateSearchType()
     cartBottomAdjust()
 
+    document.getElementById("products-menu-item").addEventListener("click", () => {
+        resetSearch()
+        backToProducts()
+    })
+
     document.getElementById("categories-menu-item").addEventListener("click", () => {
         resetSearch()
         showCategories()

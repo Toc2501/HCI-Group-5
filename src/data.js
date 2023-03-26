@@ -68,7 +68,7 @@ items = [
         "sold-in":"12 count",
         "aisle":8,
         "category":["Dairy and Eggs"],
-        "availabe":100,
+        "available":100,
         "price":3.59,
     },
     {

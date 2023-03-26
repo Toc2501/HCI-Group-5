@@ -52,7 +52,7 @@ function createFront(imgsrc,name,price){
 
     img.src = imgsrc
     title.innerHTML = name
-    priceTag.innerHTML = '$'+price
+    priceTag.innerHTML = '$'+price.toFixed(2)
 
     front.title = 'click me!'
     front.append(img,title,priceTag)
